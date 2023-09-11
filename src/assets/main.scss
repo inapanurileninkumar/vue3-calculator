@@ -1,0 +1,67 @@
+.row{
+    display: flex;
+    flex-wrap: nowrap;
+    min-width:100%;
+    max-width:100%;
+
+    &.wrap{
+        flex-wrap: wrap;
+    }
+
+    @for $colsize from 1 through 12 {
+        .col-#{$colsize}{
+            flex: 0 0 $colsize / 12 * 100%;
+        }
+    }
+
+    $alignments: center, flex-start, flex-end, space-between, space-around;
+    @each $alignment in $alignments {
+        .align-#{$alignment}{
+            align-items: $alignment;
+        }
+    }
+
+    $justifications: flex-start, flex-end, center, space-between, space-around;
+    @each $justification in $justifications {
+        .justify-#{$justification}{
+            justify-content: $justification;
+        }
+    }
+
+    $gutters: 5, 10, 15, 20, 25;
+    @each $gutter in $gutters {
+        .p-#{$gutter}{
+            padding: #{$gutter}px;
+        }
+    }
+}
+
+$spacings: 0, 5px, 10px, 15px, 20px, 25;
+@each $spacing in $spacings {
+    .m-#{$spacing}{
+        margin: $spacing;
+    }
+}
+
+$fontsizes: 0, 5px, 10px, 15px, 20px, 25;
+@each $fontsize in $fontsizes {
+    .font-#{$fontsize}{
+        font-size: $fontsize;
+    }
+}
+
+$colors: aqua, blue, fuchsia, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, yellow;
+@each $color in $colors {
+    .bg-#{$color}{
+        background-color: $color;
+    }
+    .text-#{$color}{
+        color: $color;
+    }
+}
+
+.navbar{
+    height:60px;
+    min-height:60px;
+    max-height: 60px;
+}
